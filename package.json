@@ -4,20 +4,20 @@
 	"description": "Collapse svg",
 	"version": "0.0.1",
 	"engines": {
-		"vscode": "^1.58.0"
+		"vscode": "^1.57.0"
 	},
 	"categories": [
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:svg-collapse.helloWorld"
+		"onCommand:svg-collapse.foldAllSVGTag"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "svg-collapse.helloWorld",
-				"title": "Hello World"
+				"command": "svg-collapse.foldAllSVGTag",
+				"title": "Fold all SVG tag"
 			}
 		]
 	},

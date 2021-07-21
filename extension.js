@@ -17,11 +17,21 @@ function activate(context) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('svg-collapse.helloWorld', function () {
+	let disposable = vscode.commands.registerCommand('svg-collapse.foldAllSVGTag', function () {
 		// The code you place here will be executed every time your command is executed
+		// TODO:
+		// Get the document content
+		console.log(vscode.window.activeTextEditor.document.getText());
+
+		// Traverse through each line to find tag <svg
+		// Determine the opening and closing svg tag
+		// Set the line to an array
+
+		// Execute command to fold the svg
+		console.log(vscode.commands.executeCommand('editor.fold', { selectionLines: [2, 56]}))
 
 		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from svg-collapse!');
+		vscode.window.showInformationMessage('SVG tag folded.');
 	});
 
 	context.subscriptions.push(disposable);
