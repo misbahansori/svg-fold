@@ -1,6 +1,6 @@
 {
-	"name": "svg-collapse",
-	"displayName": "svg-collapse",
+	"name": "svg-fold",
+	"displayName": "svg-fold",
 	"description": "Collapse svg",
 	"version": "0.0.1",
 	"engines": {
@@ -10,13 +10,13 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:svg-collapse.foldAllSVGTag"
+		"onCommand:svg-fold.foldAllSVGTag"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "svg-collapse.foldAllSVGTag",
+				"command": "svg-fold.foldAllSVGTag",
 				"title": "Fold all SVG tag"
 			}
 		]
