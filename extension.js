@@ -9,36 +9,41 @@ const vscode = require('vscode');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "svg-collapse" is now active!');
-
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('svg-collapse.foldAllSVGTag', function () {
 		// The code you place here will be executed every time your command is executed
-		// TODO:
-		// Get the document content
-		console.log(vscode.window.activeTextEditor.document.getText());
+		const document = vscode.window.activeTextEditor.document;
+		const openingSvgRegex = /<svg/g;
+		const closingSvgRegex = />/g;
+		let svgOpeningLineNumbers = [];
+		let svgClosingLineNumbers = [];
+		let openingSvgTagDetected = false;
 
-		// Traverse through each line to find tag <svg
-		// Determine the opening and closing svg tag
-		// Set the line to an array
+		for (let lineNumber = 0; lineNumber < document.lineCount; lineNumber++) {
+			let line = document.lineAt(lineNumber);
+
+			if (openingSvgRegex.test(line.text)) {
+				svgOpeningLineNumbers.push(lineNumber);
+				openingSvgTagDetected = true;
+			}
+
+			if (closingSvgRegex.test(line.text) && openingSvgTagDetected) {
+				svgClosingLineNumbers.push(lineNumber);
+				openingSvgTagDetected = false;
+			}
+		}
 
 		// Execute command to fold the svg
-		console.log(vscode.commands.executeCommand('editor.fold', { selectionLines: [2, 56]}))
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('SVG tag folded.');
+		vscode.commands.executeCommand('editor.fold', { selectionLines: svgClosingLineNumbers });
 	});
 
 	context.subscriptions.push(disposable);
 }
 
 // this method is called when your extension is deactivated
-function deactivate() {}
+function deactivate() { }
 
 module.exports = {
 	activate,
