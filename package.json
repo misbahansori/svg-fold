@@ -3,7 +3,7 @@
 	"publisher": "misbahansori",
 	"displayName": "svg-fold",
 	"description": "Fold SVG tag",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/misbahansori/svg-fold"
@@ -17,7 +17,7 @@
 	"activationEvents": [
 		"onCommand:svg-fold.foldAllSVGTag"
 	],
-	"main": "./extension.js",
+	"main": "./src/extension.js",
 	"contributes": {
 		"commands": [
 			{
