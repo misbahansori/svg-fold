@@ -3,7 +3,7 @@
 	"publisher": "misbahansori",
 	"displayName": "svg-fold",
 	"description": "Fold SVG tag",
-	"version": "0.0.3",
+	"version": "0.1.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/misbahansori/svg-fold"
@@ -24,7 +24,14 @@
 				"command": "svg-fold.foldAllSVGTag",
 				"title": "Fold all SVG tag"
 			}
-		]
+		],
+		"keybindings": [
+            {
+                "command": "svg-fold.foldAllSVGTag",
+                "key": "ctrl+k ctrl+9",
+                "mac": "cmd+k cmd+9"
+            }
+        ]
 	},
 	"scripts": {
 		"lint": "eslint .",
