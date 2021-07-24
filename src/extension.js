@@ -36,7 +36,11 @@ function activate(context) {
 		}
 
 		// Execute command to fold the svg
-		vscode.commands.executeCommand('editor.fold', { selectionLines: svgClosingLineNumbers });
+		vscode.commands.executeCommand('editor.fold', { 
+			level: 1, 
+			direction: 'down',
+			selectionLines: svgClosingLineNumbers 
+		});
 	});
 
 	context.subscriptions.push(disposable);
