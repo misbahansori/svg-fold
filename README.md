@@ -11,4 +11,10 @@ Cmd + shift + p
 Select "Fold all SVG tag"
 ```
 
+## Shortcut
+```
+Cmd + k
+Cmd + 9
+```
+
 **Enjoy!**
