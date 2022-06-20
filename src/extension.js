@@ -17,22 +17,15 @@ function activate(context) {
 		const document = vscode.window.activeTextEditor.document
 
 		const openingSvgRegex = /<svg/g
-		const closingSvgRegex = /svg>/g
 		let svgOpeningLineNumbers = []
-
-		let openingSvgTagDetected = false
 
 		for (let lineNumber = 0; lineNumber < document.lineCount; lineNumber++) {
 			let line = document.lineAt(lineNumber)
 
 			if (openingSvgRegex.test(line.text)) {
 				svgOpeningLineNumbers.push(lineNumber)
-				openingSvgTagDetected = true
 			}
 
-			if (closingSvgRegex.test(line.text) && openingSvgTagDetected) {
-				openingSvgTagDetected = false
-			}
 		}
 
 		// Execute command to fold the svg
