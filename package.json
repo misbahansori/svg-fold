@@ -1,7 +1,7 @@
 {
-	"name": "svg-fold",
+	"name": "svg-shrink",
 	"publisher": "Kurkuza",
-	"displayName": "svg-fold",
+	"displayName": "svg-shrink",
 	"description": "Fold SVG tag",
 	"version": "0.1.1",
 	"repository": {
